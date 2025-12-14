@@ -36,6 +36,7 @@ Works with:
 * c
 * csharp
 * css
+* go
 * hashbang
 * haskell
 * html

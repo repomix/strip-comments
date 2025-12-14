@@ -1,0 +1,15 @@
+//go:build linux
+//go:generate stringer -type=Pill
+
+package main
+
+import "fmt"
+
+// This is a line comment
+func main() {
+    //go:embed hello.txt
+    var content string
+    /* This is a
+       block comment */
+    fmt.Println("Hello") // inline comment
+}

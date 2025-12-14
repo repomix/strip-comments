@@ -41,6 +41,14 @@ describe('other languages', () => {
     assert.strictEqual(actual, output);
   });
 
+  it('should strip Go comments while preserving directives', () => {
+    const name = 'go';
+    const input = read(fixture(`${name}.txt`));
+    const output = read(expected(`${name}.txt`));
+    const actual = strip(input, { language: name, preserveNewlines: true });
+    assert.strictEqual(actual, output);
+  });
+
   it('should strip AppleScript comments', () => {
     const name = 'AppleScript';
     const input = read(fixture(`${name}.txt`));
