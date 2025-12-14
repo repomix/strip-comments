@@ -1,12 +1,19 @@
 {
-  "name": "strip-comments",
+  "name": "@repomix/strip-comments",
   "description": "Strip line and/or block comments from a string. Blazing fast, and works with JavaScript, Sass, CSS, Less.js, and a number of other languages.",
   "version": "2.0.1",
-  "homepage": "https://github.com/jonschlinkert/strip-comments",
+  "homepage": "https://github.com/repomix/strip-comments",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
-  "repository": "jonschlinkert/strip-comments",
+  "contributors": [
+    "Jon Schlinkert (https://github.com/jonschlinkert)",
+    "Kazuki Yamada (https://github.com/yamadashy)"
+  ],
+  "repository": "repomix/strip-comments",
   "bugs": {
-    "url": "https://github.com/jonschlinkert/strip-comments/issues"
+    "url": "https://github.com/repomix/strip-comments/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "license": "MIT",
   "files": [
