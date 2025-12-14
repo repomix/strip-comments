@@ -121,6 +121,32 @@ describe('other languages', () => {
     assert.strictEqual(actual, output);
   });
 
+  it('should strip Python single-quote docstrings', () => {
+    const input = "def test():\n    '''docstring'''\n    return True";
+    const output = "def test():\n    \n    return True";
+    const actual = strip(input, { language: 'python' });
+    assert.strictEqual(actual, output);
+  });
+
+  it('should preserve Python string literals with triple quotes', () => {
+    const input = 'sql = """SELECT * FROM users"""\nprint(sql)';
+    const actual = strip(input, { language: 'python' });
+    assert.strictEqual(actual, input);
+  });
+
+  it('should preserve Python string literals with single triple quotes', () => {
+    const input = "sql = '''SELECT * FROM users'''\nprint(sql)";
+    const actual = strip(input, { language: 'python' });
+    assert.strictEqual(actual, input);
+  });
+
+  it('should handle Python docstrings with mixed quotes inside', () => {
+    const input = "def test():\n    '''docstring with \"\"\" inside'''\n    return True";
+    const output = "def test():\n    \n    return True";
+    const actual = strip(input, { language: 'python' });
+    assert.strictEqual(actual, output);
+  });
+
   it('should strip Ruby comments', () => {
     const name = 'ruby';
     const input = read(fixture(`${name}.txt`));
