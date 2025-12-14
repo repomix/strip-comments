@@ -121,6 +121,27 @@ describe('JavaScript comments', () => {
     assert.strictEqual(actual, expected);
   });
 
+  // see https://github.com/jonschlinkert/strip-comments/issues/73
+  it('should handle empty block comments /**/', () => {
+    const actual = strip('hello/**/ world');
+    const expected = 'hello world';
+    assert.strictEqual(actual, expected);
+  });
+
+  // see https://github.com/jonschlinkert/strip-comments/issues/69
+  it('should handle /* within block comments', () => {
+    const input = `export interface A {
+  b: boolean;
+
+  /**
+   * /*
+   */
+  c: boolean;
+}`;
+    const actual = strip(input);
+    assert(actual.includes('c: boolean;'), 'should preserve code after comment with /* inside');
+  });
+
   // see https://github.com/jonschlinkert/strip-comments/issues/27
   it('should not break on comments that are substrings of a later comment', () => {
     const actual = strip([
