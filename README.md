@@ -34,6 +34,7 @@ Works with:
 * apl
 * applescript
 * c
+* cpp (c++, cc, cxx)
 * csharp
 * css
 * go

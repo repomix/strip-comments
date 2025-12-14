@@ -41,6 +41,8 @@
     "block",
     "block-comment",
     "c comments",
+    "c++ comments",
+    "cpp comments",
     "code comment",
     "comment",
     "comments",
