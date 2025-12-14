@@ -147,6 +147,38 @@ describe('other languages', () => {
     assert.strictEqual(actual, output);
   });
 
+  it('should preserve multi-line string literals and strip following docstrings', () => {
+    const input = `        var = """
+        string variable
+        """
+        """
+        docstring
+        """`;
+    // After stripping docstring, the newline and indentation before it remain
+    const output = `        var = """
+        string variable
+        """
+        `;
+    const actual = strip(input, { language: 'python' });
+    assert.strictEqual(actual, output);
+  });
+
+  it('should preserve multi-line string literals with single quotes', () => {
+    const input = `        var = '''
+        string variable
+        '''
+        '''
+        docstring
+        '''`;
+    // After stripping docstring, the newline and indentation before it remain
+    const output = `        var = '''
+        string variable
+        '''
+        `;
+    const actual = strip(input, { language: 'python' });
+    assert.strictEqual(actual, output);
+  });
+
   it('should strip Ruby comments', () => {
     const name = 'ruby';
     const input = read(fixture(`${name}.txt`));
