@@ -27,8 +27,6 @@ vendor
 temp
 tmp
 TODO.md
-package-lock.json
-
 # repomix
 .claude/skills/repomix-*reference-*/
 lute.min.js
